@@ -3,27 +3,33 @@
 <html>
 <head>
   <title>Game</title>
+  <link rel="stylesheet" href="static/madlibs.css">
 </head>
 <body>
 <form action = "/madlib">
     Please enter a celebrity's name.<input type= "text" name="person"><br>
     What is your favorite color?<select name="color">
-        <option value="red">Red</option>
-        <option value="yellow">Yellow</option>
-        <option value="green">Green</option>
-        <option value="blue">Blue</option>
-        <option value="Orange">Orange</option>
+    {%for color in all_colors %}
+        <option value={{color}}>{{color}}</option>
+    {% endfor %}
+
     </select><br>
     Please enter a noun.<input type="text" name="noun"><br>
     Please enter an adjective.<input type="text" name="adjective"><br>
     Choose one or more adverbs.<br>
-    <input type="checkbox" name="adverb" value="gently">Gently<br>
+    {% for adverb in all_adverbs %}
+        <input type="checkbox" name="adverb" value={{adverb}}>{{adverb}}<br>
+    {% endfor %}
+
+
+  <!--   <input type="checkbox" name="adverb" value="gently">Gently<br>
     <input type="checkbox" name="adverb" value="quietly">Quietly<br>
     <input type="checkbox" name="adverb" value="quickly">Quickly<br>
     <input type="checkbox" name="adverb" value="terribly">Terribly<br>
-
+ -->
     <input type="submit">
 
 </form>
 </body>
+
 </html>

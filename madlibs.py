@@ -44,7 +44,9 @@ def show_madlib_form():
     response = request.args.get("play-game")
 
     if response == "yes":
-        return render_template("game.html")
+        return render_template("game.html",
+                                all_colors=["red","yellow","blue","green","orange"],
+                                all_adverbs=["gently","quietly","quickly","gently"])
     else: 
         return render_template("goodbye.html")
 
